@@ -1,18 +1,20 @@
-from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.forms import ModelForm
+from .models import *
+from django.contrib.auth.forms import UserCreationForm
 
-from .models import CustomUser
+class fooditemForm(ModelForm):
+	
+	class Meta:
+		model = Fooditem
+		fields = "__all__"
 
-class CustomUserCreationForm(UserCreationForm):
-
-	class Meta(UserCreationForm):
-		model = CustomUser
-		fields = UserCreationForm.Meta.fields + ('age',)
-		fields = ('username', 'email', 'age',)
-
-class CustomUserChangeForm(UserChangeForm):
+class addUserFoodItem(ModelForm):
 
 	class Meta:
-		model = CustomUser
-		fields = UserChangeForm.Meta.fields
-		fields = ('username', 'email', 'age',)
+		model = UserFoodItem
+		fields = "__all__"
+
+class createUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username','email','password1','password2']

@@ -4,20 +4,7 @@
 
 {% block title %}Home{% endblock title %}
 
+
 {% block content %}
-
-{% if user.is_authenticated %}
-
-	Hi {{ user.username }}!
-
-	<p><a href="{% url 'logout' %}" class="btn btn-primary ml-2">Log Out</a></p>
-
-{% else %}
-
-	<a href="{% url 'login' %}" class ="btn btn-primary ml-2">Log In</a>
-
-	<a href="{% url 'signup' %}" class ="btn btn-primary ml-2">Sign up</a>
-
-{% endif %}
 
 {% endblock content %}
